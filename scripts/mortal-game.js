@@ -1,32 +1,12 @@
 RocketBoots.loadComponents([
-	"PIXI",
 	"Game",
-	"Coords",
-	"StateMachine",
-	"Dice",
-	"Entity",
-	"Loop",
-	"Stage",
-	"World",
-	"Keyboard",
-	"Color",
-	"GameImage",
-	"Spritesheet"
-	//"ImageBank"
+	"StateMachine"
 ]).ready(function(){
 
 	const g = new RocketBoots.Game({
-		name: "LD",
-		instantiateComponents: [
-			//{"state": "StateMachine", "options": {"states": states}},
-			//{"loop": "Loop"},
-			//{"dice": "Dice"},
-			//{"world": "World", "options": worldOptions},
-			//{"stage": "Stage", "options": stageOptions},
-			//{"images": "ImageBank"},
-			//{"keyboard": "Keyboard"}
-		],
-		version: "v0.0.0"
+		name: "Mortal",
+		instantiateComponents: [],
+		version: "v1.0.0"
 	});	
 
 	g.age = 0;
@@ -34,12 +14,14 @@ RocketBoots.loadComponents([
 	g.lastYear = 0;
 
 	updateUI();
+	updateGraphic(getYears());
 
-	$('button.age').click((e) => {
+	$('button.age').click(increment);
+
+	function increment() {
 		g.age += Math.round(g.rate);
 		g.rate += 2;
 		updateUI();
-		console.log(g.rate, g.age);
 		const year = getYears();
 		if (year > g.lastYear) {
 			g.lastYear = year;
@@ -47,9 +29,8 @@ RocketBoots.loadComponents([
 		}
 		if (year >= 99) {
 			$('.clickers').hide();
-		}
-	});
-
+		}		
+	}
 
 	function updateGraphic(year) {
 		const i = getGraphicIndex(year);
@@ -69,7 +50,7 @@ RocketBoots.loadComponents([
 	}
 
 	function getGraphicIndex(year) {
-		if (year < 0) {
+		if (year <= 0) {
 			return 0;
 		} else if (year < 5) {
 			return 1;
@@ -86,8 +67,5 @@ RocketBoots.loadComponents([
 		}
 		return 7;
 	}
-
-
-
 
 }).init();

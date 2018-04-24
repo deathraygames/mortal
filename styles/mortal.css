@@ -23,6 +23,10 @@ article > * {
 	/* flex-grow: 1; */
 }
 
+a {
+	color: #eef;
+}
+
 button {
 	padding: 1em 2em;
 	font-size: inherit;
