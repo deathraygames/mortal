@@ -11,4 +11,6 @@
 ## How to Win
 1. ???
 
+> "No one here gets out alive." - Jim Morrison
+
 (Incompatible genres maybe don't make for the best games)
