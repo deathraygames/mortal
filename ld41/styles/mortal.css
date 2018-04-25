@@ -29,7 +29,7 @@ a {
 
 button {
 	padding: 1em 2em;
-	font-size: inherit;
+	font-size: 100%;
 	font-family: inherit;
 	cursor: pointer;
 	background-color: rgba(255,255,255,0.3);
@@ -63,7 +63,6 @@ footer {
 .character, .stats, .clickers {
 	flex-grow: 1;
 	width: 50%;
-	min-width: 20em;
 	margin: 0 auto;
 	background: rgba(255,255,255,0.1);
 	padding: 0.2em 0;
@@ -92,7 +91,8 @@ footer {
 .character img,
 .character > div {
 	display: none;
-	width: 300px;
+	width: 100%;
+	max-width: 300px;
 	margin: 0 auto;
 }
 
@@ -124,4 +124,35 @@ h1 {
 
 .years {
 	opacity: 0.5;
+}
+
+@media screen and (max-width: 900px) {
+	.character, .stats, .clickers {
+		width: 70%;
+	}
+}
+@media screen and (max-width: 800px) {
+	.character, .stats, .clickers {
+		width: 80%;
+	}
+}
+@media screen and (max-width: 700px) {
+	body {
+		font-size: 20px;
+	}
+	.character, .stats, .clickers {
+		width: 90%;
+	}
+}
+@media screen and (max-width: 600px) {
+	.character, .stats, .clickers {
+		width: 100%;
+	}
+	button {
+		padding: 1em;
+	}
+	.years {
+		display: block;
+		font-size: 80%;
+	}
 }
